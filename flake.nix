@@ -35,7 +35,7 @@
           venvDir = "./.venv";
           buildInputs = with pkgs; [
             voicevox
-            cli-visualizer
+            cava
             cudaPackages.cudatoolkit
             cudaPackages.cudnn
             pythonPackages.venvShellHook
