@@ -42,6 +42,7 @@
             pythonPackages.pytorch-bin
             pythonPackages.torchaudio-bin
             pythonPackages.open-interpreter
+            pythonPackages.python-dotenv
             # pythonPackages.voicevox-client
             pythonPackages.numpy
             pythonPackages.sounddevice
