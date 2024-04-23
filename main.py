@@ -12,8 +12,9 @@ async def main():
         query = input("Query: ")
         if query == "exit":
             break
-        query = chat(query)[1]['content']
-        await play_audio(query, config["voicevox_speaker_id"])
+        jp, en = chat(query)
+        print(f"{jp}\n{en}")
+        await play_audio(jp, config["voicevox_speaker_id"])
 
 if __name__ == "__main__":
     # subprocess.run("vis")
