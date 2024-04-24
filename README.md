@@ -1,5 +1,5 @@
 # Maid OS
-NixOS AI Waifu
+Nix AI Waifu
 
 INSERT VIDEO
 play with audio 🔊
@@ -11,3 +11,10 @@ play with audio 🔊
 3. `cd maid-os && nix develop`
 4. `cava -p cava/config`
 5. `python main.py`
+
+
+## To-Do
+- [ ] English translation with llama3 and groq
+- [ ] Better [SWE-Agent](https://github.com/princeton-nlp/SWE-agent)
+- [ ] Switch to [cavacore](https://github.com/karlstav/cava/blob/master/CAVACORE.md)
+- [ ] Migrate away from Open Interpreter?
