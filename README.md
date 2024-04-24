@@ -15,6 +15,7 @@ play with audio 🔊
 
 ## To-Do
 - [ ] English translation with llama3 and groq
+- [ ] Add voicevox engine to flake.nix
 - [ ] Better [SWE-Agent](https://github.com/princeton-nlp/SWE-agent)
 - [ ] Switch to [cavacore](https://github.com/karlstav/cava/blob/master/CAVACORE.md)
 - [ ] Migrate away from Open Interpreter?
