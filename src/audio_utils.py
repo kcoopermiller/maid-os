@@ -2,7 +2,6 @@ from voicevox import Client
 import torchaudio
 import sounddevice as sd
 from io import BytesIO
-import sys
 
 async def play_audio(query: str, speaker_id: int):
     async with Client() as client:
@@ -13,3 +12,6 @@ async def play_audio(query: str, speaker_id: int):
         data, sr = torchaudio.load(wav_bytesIO)
         sd.play(data[0].numpy(), sr)
         sd.wait()
+
+
+# TODO: add cavacore support

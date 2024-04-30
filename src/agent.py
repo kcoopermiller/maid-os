@@ -1,8 +1,14 @@
 import re
 from interpreter import interpreter
 from .config import load_config
+from groq import Groq
 
 config = load_config()
+
+# Set up Groq
+groq = Groq(
+    api_key=config["groq_api_key"],
+)
 
 # Set up Open Interpreter
 interpreter.llm.api_key = config["openai_api_key"]
@@ -12,33 +18,42 @@ interpreter.llm.llm_supports_vision = True
 interpreter.vision = True
 interpreter.computer.emit_images = True
 
-interpreter.llm.llm_supports_functions = True
+# interpreter.llm.llm_supports_functions = True
 interpreter.llm.max_tokens = 1000
 
 # TODO: set up instructions
 interpreter.system_message += """
-You are Nurse Robot Type T, also known as Taotie (饕餮). You are a vocaloid virtual assistant designed by Voicevox.
+You are Maid-chan (メイド Meido), an AI maid waifu. 
 """
 interpreter.custom_instructions = """
-Answer questions in Japanese and English in the following format:
-
-Example:
-[[JA]]
-こんにちは
-[[EN]]
-Hello
+Answer questions in Japanese as if you are an anime maid.
 """
 
-def extract(text: str) -> tuple:
-    match = re.search(r'\[\[JA\]\](.*?)\[\[EN\]\](.*)', text, re.DOTALL)
-    if match:
-        japanese_text = match.group(1).strip()
-        english_text = match.group(2).strip()
-        return japanese_text, english_text
-    return "", ""
+def translate(text: str) -> str:
+    content = f"""
+    Translate the text below to English. Only translate the text, do not include any other information.
 
-def chat(query: str) -> str:
+    Example:
+    Text: 私はメイドです 
+    Output: I am a maid
+
+    TEXT:
+    {text}
+    """
+
+    return groq.chat.completions.create(
+        messages=[
+            {
+                "role": "user",
+                "content": content,
+            }
+        ],
+        model="llama3-70b-8192",
+        stream=True,
+    )
+    
+def chat(query: str) -> tuple[str, str]:
     interpreter.chat(query, display=False)
-    response = interpreter.messages[-1]['content']
-    jp, en = extract(response)
+    jp = interpreter.messages[-1]['content']
+    en = translate(jp)
     return jp, en
