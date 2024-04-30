@@ -13,7 +13,7 @@
 # 'autosens' will attempt to decrease sensitivity if the bars peak. 1 = on, 0 = off
 # new as of 0.6.0 autosens of low values (dynamic range)
 # 'overshoot' allows bars to overshoot (in % of terminal height) without initiating autosens. DEPRECATED as of 0.6.0
-; autosens = 1
+autosens = 1
 overshoot = 10
 
 # Manual sensitivity in %. If autosens is enabled, this will only be the initial value.
@@ -23,7 +23,7 @@ overshoot = 10
 # The number of bars (0-512). 0 sets it to auto (fill up console).
 # Bars' width and space between bars in number of characters.
 ; bars = 0
-; bar_width = 2
+bar_width = 3
 ; bar_spacing = 1
 # bar_height is only used for output in "noritake" format
 ; bar_height = 32
