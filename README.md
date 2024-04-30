@@ -1,5 +1,4 @@
 # Maid OS
-Nix AI Waifu
 
 INSERT VIDEO
 play with audio 🔊
@@ -14,7 +13,6 @@ play with audio 🔊
 
 
 ## To-Do
-- [ ] English translation with llama3 and groq
 - [ ] Add voicevox engine to flake.nix
 - [ ] Add voicevox and voicevox-client to nixpkgs
 - [ ] Better [SWE-Agent](https://github.com/princeton-nlp/SWE-agent)
