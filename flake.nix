@@ -28,8 +28,7 @@
              pythonPackages.wheel
            ];
         };
-
-        voicevox = pkgs.callPackage ./voicevox.nix {};
+        voicevox = pkgs.callPackage ./voicevox.nix { inherit pkgs system; };
       in {
         devShell = pkgs.mkShell {
           venvDir = "./.venv";
@@ -42,6 +41,7 @@
             pythonPackages.pytorch-bin
             pythonPackages.torchaudio-bin
             pythonPackages.open-interpreter
+            # pythonPackages.groq
             pythonPackages.python-dotenv
             # pythonPackages.voicevox-client
             pythonPackages.numpy
