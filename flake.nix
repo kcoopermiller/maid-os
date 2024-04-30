@@ -29,20 +29,27 @@
            ];
         };
         voicevox = pkgs.callPackage ./voicevox.nix { inherit pkgs system; };
-      in {
+       in {
         devShell = pkgs.mkShell {
           venvDir = "./.venv";
           buildInputs = with pkgs; [
             voicevox
             cava
+            scrot
+            stdenv.cc.cc.lib
             cudaPackages.cudatoolkit
             cudaPackages.cudnn
             pythonPackages.venvShellHook
             pythonPackages.pytorch-bin
             pythonPackages.torchaudio-bin
-            pythonPackages.open-interpreter
+            # pythonPackages.open-interpreter
             # pythonPackages.groq
             pythonPackages.python-dotenv
+            pythonPackages.pyautogui
+            # pythonPackages.opencv-python
+            pythonPackages.plyer
+            pythonPackages.pyperclip
+            # pythonPackages.PyWinCtl
             # pythonPackages.voicevox-client
             pythonPackages.numpy
             pythonPackages.sounddevice
@@ -57,6 +64,7 @@
           postShellHook = ''
             # allow pip to install wheels
             unset SOURCE_DATE_EPOCH
+            export LD_LIBRARY_PATH=${pkgs.stdenv.cc.cc.lib}/lib:$LD_LIBRARY_PATH
           '';
         };
       }
