@@ -1,9 +1,8 @@
 # Maid OS
-
-<video src="./demo.mp4" controls>
-  Your browser does not support the video tag.
-</video>
 play with audio 🔊
+
+https://github.com/kcoopermiller/maid-os/assets/44559144/92066998-fbd1-4294-afb3-13b46d93ad12
+
 
 
 # Getting Started
