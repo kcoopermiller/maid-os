@@ -1,9 +1,11 @@
+import os
 import asyncio
 from src.audio_utils import play_audio
 from src.agent import chat
 from src.config import Config
 
 async def main():
+    os.system('clear')
     config = Config()
     print("いらっしゃいませ\nType 'exit' to exit")
     await play_audio("いらっしゃいませ", config.voicevox_speaker_id)
