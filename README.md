@@ -15,6 +15,7 @@ play with audio 🔊
 ## To-Do
 - [ ] Add voicevox engine to flake.nix
 - [ ] Add voicevox and voicevox-client to nixpkgs
+- [ ] Update open interpreter python package in nixpkgs
 - [ ] Better [SWE-Agent](https://github.com/princeton-nlp/SWE-agent)
 - [ ] Switch to [cavacore](https://github.com/karlstav/cava/blob/master/CAVACORE.md)
 - [ ] Migrate away from Open Interpreter?

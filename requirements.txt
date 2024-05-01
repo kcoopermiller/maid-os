@@ -1,2 +1,5 @@
 voicevox-client
 groq
+opencv-python
+PyWinCtl
+open-interpreter[os]

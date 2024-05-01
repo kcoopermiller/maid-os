@@ -36,9 +36,15 @@
             voicevox
             cava
             scrot
+            xclip
             stdenv.cc.cc.lib
+            tesseract
+            xorg.libX11
+            xorg.libXrandr
             cudaPackages.cudatoolkit
             cudaPackages.cudnn
+            pythonPackages.opencv4
+            pythonPackages.dbus-python
             pythonPackages.venvShellHook
             pythonPackages.pytorch-bin
             pythonPackages.torchaudio-bin
@@ -48,11 +54,13 @@
             pythonPackages.pyautogui
             # pythonPackages.opencv-python
             pythonPackages.plyer
+            pythonPackages.pytesseract
             pythonPackages.pyperclip
             # pythonPackages.PyWinCtl
             # pythonPackages.voicevox-client
             pythonPackages.numpy
             pythonPackages.sounddevice
+            pythonPackages.screeninfo
             # voicevox-client
           ];
 
