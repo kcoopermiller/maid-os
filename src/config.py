@@ -9,6 +9,7 @@ from interpreter.core.computer.keyboard.keyboard import Keyboard
 from interpreter.core.computer.mouse.mouse import Mouse
 from interpreter.core.computer.os.os import Os
 from interpreter.core.computer.terminal.terminal import Terminal
+from interpreter.core.computer.browser.browser import Browser
 
 class Config:
     def __init__(self):
@@ -49,6 +50,7 @@ class Config:
         self.mouse = Mouse(self.computer)
         self.os = Os(self.computer)
         self.terminal = Terminal(self.computer)
+        self.browser = Browser(self.computer)
 
         self.interpreter.computer = self.computer
 
