@@ -17,7 +17,7 @@ async def main():
         jp, en = chat(query)
         audio_task = asyncio.create_task(play_audio(jp, config.voicevox_speaker_id))
         for chunk in en:
-            print(chunk.choices[0].delta.content or "", end="")
+            print(chunk.choices[0].delta.content or "")
         await audio_task
 
 if __name__ == "__main__":
