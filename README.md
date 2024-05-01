@@ -1,6 +1,8 @@
 # Maid OS
 
-INSERT VIDEO
+<video src="./demo.mp4" controls>
+  Your browser does not support the video tag.
+</video>
 play with audio 🔊
 
 
