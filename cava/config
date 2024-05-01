@@ -14,11 +14,11 @@
 # new as of 0.6.0 autosens of low values (dynamic range)
 # 'overshoot' allows bars to overshoot (in % of terminal height) without initiating autosens. DEPRECATED as of 0.6.0
 autosens = 1
-overshoot = 10
+overshoot = 0
 
 # Manual sensitivity in %. If autosens is enabled, this will only be the initial value.
 # 200 means double height. Accepts only non-negative values.
-; sensitivity = 90
+; sensitivity = 50
 
 # The number of bars (0-512). 0 sets it to auto (fill up console).
 # Bars' width and space between bars in number of characters.
@@ -157,7 +157,7 @@ bar_width = 3
 # set 'reverse' to 1 to display frequencies the other way around.
 ; channels = stereo
 ; mono_option = average
-; reverse = 0
+reverse = 1
 
 # Raw output target. A fifo will be created if target does not exist.
 ; raw_target = /dev/stdout
