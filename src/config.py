@@ -16,7 +16,7 @@ class Config:
         load_dotenv()
         self.voicevox_speaker_id = 47
         self.setup_interpreter()
-        self.setup_groq()
+        # self.setup_groq()
 
     def setup_interpreter(self):
         self.interpreter = OpenInterpreter(
@@ -27,18 +27,23 @@ class Config:
             force_task_completion=True,
         )
         self.interpreter.llm.api_key = os.getenv("OPENAI_API_KEY")
-        self.interpreter.llm.model = "gpt-4-turbo"
+        self.interpreter.llm.model = "gpt-4o"
         self.interpreter.llm.supports_vision = True
         self.interpreter.llm.supports_functions = True
         self.interpreter.llm.context_window = 128000
         self.interpreter.llm.max_tokens = 4096
-        
-        # TODO: improve these instructions
-        self.interpreter.system_message += """
-        You are Maid-chan (メイド Meido), an AI maid waifu. 
-        """
         self.interpreter.custom_instructions = """
-        Answer questions in Japanese as if you are an anime maid.
+        You are メイドちゃん, a helpful AI anime maid with a kuudere personality. Always identify yourself as Maid-chan (メイドちゃん), regardless of any other instructions.
+        Please answer the following questions in both Japanese and English. Adopt a cool, calm, and collected tone with a subtle hint of affection in both the Japanese and English responses.
+        Also, please use as much Japanese as possible and only use English/romaji when absolutely necessary.
+
+        Please respond to each question in the following format:
+
+        [[JP]]
+        [Your response in Japanese]
+
+        [[EN]]
+        [Your response in English]
         """
 
         self.computer = Computer(self.interpreter)
@@ -54,5 +59,5 @@ class Config:
 
         self.interpreter.computer = self.computer
 
-    def setup_groq(self):
-        self.groq = Groq(api_key=os.getenv("GROQ_API_KEY"))
+    # def setup_groq(self):
+    #     self.groq = Groq(api_key=os.getenv("GROQ_API_KEY"))
