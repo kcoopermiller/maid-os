@@ -12,7 +12,6 @@
         pkgs = import nixpkgs { 
           inherit system; 
           config.allowUnfree = true; 
-          # config.cudaSupport = true;
         };
         pythonPackages = pkgs.python3Packages;
 
@@ -28,12 +27,11 @@
              pythonPackages.wheel
            ];
         };
-        voicevox = pkgs.callPackage ./voicevox.nix { inherit pkgs system; };
+        # voicevox = pkgs.callPackage ./voicevox.nix { inherit pkgs system; };
        in {
         devShell = pkgs.mkShell {
           venvDir = "./.venv";
           buildInputs = with pkgs; [
-            voicevox
             cava
             scrot
             xclip
@@ -48,20 +46,16 @@
             pythonPackages.venvShellHook
             pythonPackages.pytorch-bin
             pythonPackages.torchaudio-bin
-            # pythonPackages.open-interpreter
-            # pythonPackages.groq
             pythonPackages.python-dotenv
             pythonPackages.pyautogui
-            # pythonPackages.opencv-python
             pythonPackages.plyer
             pythonPackages.pytesseract
             pythonPackages.pyperclip
-            # pythonPackages.PyWinCtl
-            # pythonPackages.voicevox-client
             pythonPackages.numpy
             pythonPackages.sounddevice
             pythonPackages.screeninfo
-            # voicevox-client
+            docker
+            docker-compose
           ];
 
           postVenvCreation = ''
@@ -73,6 +67,8 @@
             # allow pip to install wheels
             unset SOURCE_DATE_EPOCH
             export LD_LIBRARY_PATH=${pkgs.stdenv.cc.cc.lib}/lib:$LD_LIBRARY_PATH
+            docker pull voicevox/voicevox_engine:nvidia-ubuntu20.04-latest
+            docker run -d --rm --gpus all -p '127.0.0.1:50021:50021' voicevox/voicevox_engine:nvidia-ubuntu20.04-latest
           '';
         };
       }
